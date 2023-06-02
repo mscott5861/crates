@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  ktra: 
+    image: ghcr.io/moriturus/ktra:0.7.0
+    environment:
+      - RUST_LOG=ktra,warp=debug
+    command:
+      - "--dl-dir-path=/data/crates"
+      - "--cache-dir-path=/data/crates_io_caches"
+      - "--db-dir-path=/data/db"
+    volumes:
+      - ./ktra.toml:/ktra.toml
+      - type: bind
+        source: ./drive
+        target: /data
