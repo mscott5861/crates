@@ -8,6 +8,8 @@ services:
       - "--dl-dir-path=/data/crates"
       - "--cache-dir-path=/data/crates_io_caches"
       - "--db-dir-path=/data/db"
+    ports:
+      - "8000:8000"
     volumes:
       - ./ktra.toml:/ktra.toml
       - type: bind
